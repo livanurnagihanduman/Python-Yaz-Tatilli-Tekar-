@@ -245,7 +245,7 @@ efe = customer(46434346464)
 print("Bilgiler = " + str(liva.salary))
 print("Bilgiler = " + str(efe.creditCardNumber))
 
-#%%
+
 class HesapMakinesi():
     def __init__(self,number1,number2):
         self.number1 = number1
@@ -282,6 +282,211 @@ hesap = HesapMakinesi(8,9)
 print("Silindirin Hacmi = " + str(hesap.silindirinHacmi()))
 print("Üçgenin Alanı = " + str(hesap.ucgeninAlani()))
 print("Kürenin Hacmi = " + str(hesap.kureninHacmi()))
+
+
+class Hospital():
+    def __init__(self,name,lastName,number,section,age):
+        print("Welcome to Hospital Programme")
+        self.name = name
+        self.lastName = lastName
+        self.number = number
+        self.section = section
+        self.age = age
+        
+    def doktorSecme(self):
+        if self.section == "kardiyoloji":
+            print("lütfen Kalp Dr.'muz Ziya Bey'i tercih edin")
+        if self.section == "nöroloji":
+            print("lütfen Beyin Cerrahı'mız Liva Hanım'ı tercih edin")
+     
+            
+    def control(self):
+        if self.age >= 65:
+            print("Öncelik 65 yaş üstünündür")
+        if self.age <= 18:
+             print("Öncelik 18 yaş altı çocuklarındır")
+        else:
+              print("lütfen sıranızı takip edin")
+              
+hasta = Hospital("Livanur Nagihan","Duman",115,"nöroloji",69)
+hasta2 = Hospital("Efe","Kaya",110,"kardiyoloji",18)
+print("Hasta Bilgileri = " + str(hasta2.control()))
+print("Hasta Bilgileri = " + str(hasta2.doktorSecme()))
+print("Hasta Adı = " + str(hasta2.name))
+print("Hasta Soyadı = " + str(hasta2.lastName))
+print("Hastanın gideceği bölüm = " + str(hasta2.section))
+print("Hasta Sıra Numarası = " + str(hasta2.number))
+print("Hasta Yaşı = " + str(hasta2.age))
+
+
+#İTERATOR İLE ÇALIŞMAK
+#pythonda iterator for döngüsüyle aynı işlevdedir.
+
+sehirler = ["Gaziantep","Kahramanmaraş","Hatay"]
+iteratorum = iter(sehirler)
+
+print(next(iteratorum))
+print(next(iteratorum))
+print(next(iteratorum))
+
+#Map fonksiyonuyla  çalışmak
+
+sayilar = [1,2,3,4,5]
+sayilarinKaresi = list(map(lambda sayi:sayi**2,sayilar))
+print(sayilarinKaresi)
+
+#Filter fonksiyonuyla çalışmak
+
+sayilar = [1,2,3,4,5]
+sayilariFiltrele = list(filter(lambda sayi: sayi>2,sayilar))
+print(sayilariFiltrele)
+
+#Bilgisayar Mühendisliğine Giriş Kitabı Ödev syf:63
+
+a = "Computer !"
+b = "Science !"
+c = "Rocks !"
+print(a)
+print(b)
+print(c)
+
+
+#JSON DATA
+
+import json
+
+data = '{"firstName":"Livanur Nagihan","lastName":"Duman"}'
+
+y = json.loads(data)
+print(y["firstName"])
+print(y["lastName"])
+
+customer = {
+    "firstName" : "Liva",
+    "email" : "dumanliva@gmail.com"
+    }
+
+customerJson = json.dumps(customer)
+print(customer)
+
+print(json.dumps("Liva"))
+
+#HATA YÖNETİMİ 
+
+try:
+    sayi = int(input("Lütefen sayi giriniz:"))
+    
+except ValueError:
+    print("Tip Uyuşmazlığı! Lütfen tekrardan sayı giriniz")
+except ZeroDivisionError:
+    print("Payda sıfır olamaz! Lütfen tekrar deneyin")
+except:
+    print("Üzgünüz!Bir hata oluştu")
+finally:
+    print("Bu kod bloğu başarılı bir şekikde çalıştı")
+    
+    
+import sys 
+   
+liste = [7,"Liva",5,0,"9"]
+for x in liste:
+    try:
+        print("sayi = " + str(x))
+        sonuc = 1/int(x)
+        print("Sonuç = " + str(sonuc))
+        
+    except ValueError:
+        print(str(x) + " = ValueError >> Tip Uyuşmazlığı Hesaplanamadı!!!" )
+        
+    except ZeroDivisionError:
+        print(str(x) + " = ZeroDivisionError >> Payda Sıfır(0) olamaz!!!")
+        
+    except:
+        print(str(x) + "Hesaplanamadı!")
+        
+    finally:
+        print("Bu kod bloğu çalıştı.")
+        
+
+#EXAMPLE
+
+print("***Öğrenci İşlerine Hoşgeldiniz***")
+
+class StudentAffairs():
+    def __init__(self,firstName,lastName,section,studentNumber,lesson1,lesson2,lesson3,lesson4):
+        self.firstName = firstName
+        self.lastName = lastName
+        self.section = section
+        self.studentNumber = studentNumber
+        self.lesson1 = lesson1
+        self.lesson2 = lesson2
+        self.lesson3 = lesson3
+        self.lesson4 = lesson4
+        
+    def Lessons(self):
+        try:
+            
+            if(85 < self.lesson1 <= 100):
+                print("Tebrikler diferansiyel denklemler dersinden AA ile geçtiniz!")
+            elif(65 < self.lesson1 < 85):
+                print("Diferansiyel Denklemler dersinden BB ile geçtiniz!")
+            else:
+                print(" Üzgünüz!!! Diferansiyel Denklemler dersinden FF ile kaldınız!")
+                
+        
+            if(85 < self.lesson2 <= 100):
+                print("Tebrikler Veri Yapıları dersinden AA ile geçtiniz!")
+            elif(65 < self.lesson2 < 85):
+                print("Veri Yapıları dersinden BB ile geçtiniz!")
+            else:
+                print(" Üzgünüz!!! Veri Yapıları dersinden FF ile kaldınız!")
+                
+            if(85 < self.lesson3 <= 100):
+                print("Tebrikler Tarih dersinden AA ile geçtiniz!")
+            elif(65 < self.lesson3 < 85):
+                print("Tarih dersinden BB ile geçtiniz!")
+            else:
+                print(" Üzgünüz!!! Tarih dersinden FF ile kaldınız!")
+                
+            if(85 < self.lesson4 <= 100):
+                print("Tebrikler Moleküler Biyoloji dersinden AA ile geçtiniz!")
+            elif(65 < self.lesson4 < 85):
+                print("Moleküler Biyoloji dersinden BB ile geçtiniz!")
+            else:
+                print(" Üzgünüz!!! Moleküler Biyoloji dersinden FF ile kaldınız!")
+                
+        except ValueError:
+            print("Tip Uyuşmazlığı! Lütfen sadece sayı giriniz!")
+        except:
+            print("Üzgünüz! Bir hata oluştu! Lütfen sadece sayı girdiğinizden emin olun!")
+        finally:
+            print("Bu kod bloğu çalışır durumda")
+            
+ogrenci = StudentAffairs("Livanur Nagihan","Duman","Bilgisayar Mühendisliği",220706003,75,100,60,"p5")
+print("Öğrenci Adı = " + str(ogrenci.firstName))
+print("Öğrenci Soyadı = " + str(ogrenci.lastName))
+print("Öğrenci Okuduğu Bölüm = " + str(ogrenci.section))
+print("Öğrenci Numarası = " + str(ogrenci.studentNumber))
+print("Öğrenci Bilgileri = " + str(ogrenci.Lessons()))
+
+
+
+      
+        
+        
+
+
+        
+
+
+
+
+
+
+            
+            
+            
+
 
 
 
